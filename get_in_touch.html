@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get in Touch - Team Project</title>
+  <nav class="navbar">
+            <div class="logo">
+                <img src="logo.jpg" alt="Logo">
+                <h1>VentureTwist</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="#">Blog</a>
+                <a href="get_in_touch.html">Get In Touch</a>
+
+                <div class="dropdown">
+                    <button class="dropdown-btn">More<i class="fas fa-chevron-down"></i></button>
+                    <div class="dropdown-content">
+                        <li><a href="booking.php">HOTEL BOOKING</a></li>
+                        <li><a href="transport.php">TRANSPORT</a></li>
+                        <li><a href="scuva.html">SCUVA DIVING</a></li>
+                        <li><a href="sky diving.html">SKY DIVING</a></li>
+                        <li><a href="BUNGEE JUMPS.HTML">BUNGEE JUMPS</a></li>
+                        <li><a href="travel_diaries.html">DIARY</a></li>
+                        <li><a href="cards.html" target="_blank">TRAVEL GADGET</a></li>
+                    </div>
+                </div>
+
+                <div class="auth-buttons">
+                    <a href="login.html">
+                        <button class="login-btn">Log In</button>
+                    </a>
+
+
+                </div>
+            </div>
+        </nav>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      color: #333;
+    }
+
+    .contact-section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 42px;
+      margin-bottom: 10px;
+      color: #2f3e55;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: #444;
+      margin-bottom: 50px;
+    }
+
+    .divider {
+      height: 4px;
+      width: 80px;
+      background: #2f3e55;
+      margin: 10px auto 40px;
+      border-radius: 2px;
+    }
+
+    .team-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+
+    .team-member {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 25px;
+      border-radius: 15px;
+      width: 300px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+
+    .team-member:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .team-member h3 {
+      margin-bottom: 12px;
+      color: #007b83;
+    }
+
+    .team-member p {
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .team-member p::before {
+      content: '📍 ';
+      margin-right: 5px;
+      font-size: 14px;
+    }
+
+    .team-member p:nth-child(3)::before {
+      content: '📞 ';
+    }
+
+    .team-member p:nth-child(4)::before {
+      content: '✉️ ';
+    }
+
+    .main-contact-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+    }
+
+    .contact-form, .map-area {
+      flex: 1 1 48%;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-form h2,
+    .map-area h2 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 14px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .contact-form button {
+      padding: 14px;
+      background-color: #007b83;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background-color: #005f67;
+    }
+
+    iframe {
+      width: 100%;
+      height: 320px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .main-contact-area {
+        flex-direction: column;
+      }
+      .contact-form, .map-area {
+        flex: 1 1 100%;
+      }
+    }
+    /* Navbar */
+.navbar {
+  background: white;
+  box-shadow: var(--shadow);
+  padding: 0.8rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: var(--transition);
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-color);
+  transition: var(--transition);
+  padding: 0.5rem 0;
+}
+
+.dropdown-btn:hover {
+  color: var(--primary-color);
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 200px;
+  box-shadow: var(--shadow);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: var(--transition);
+  z-index: 100;
+}
+
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 0.7rem 1.5rem;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f5f9;
+  color: var(--primary-color);
+  padding-left: 1.7rem;
+}
+
+/* Auth Buttons */
+.auth-buttons {
+  display: flex;
+  gap: 0.8rem;
+  margin-left: 1rem;
+}
+
+.login-btn,
+.signup-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.login-btn {
+  background: none;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.login-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.signup-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.signup-btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+  </style>
+</head>
+<body>
+
+  <section class="contact-section">
+    <h1>Get in Touch</h1>
+    <p class="subtitle">We'd love to hear from you! Feel free to reach out to any of us below.</p>
+    <div class="divider"></div>
+
+    <div class="team-contacts">
+      <!-- Member 1 -->
+      <div class="team-member">
+        <h3>Tasnima Mahfuzha Chowdhury</h3>
+        <p>Subidbazar, Sylhet</p>
+        <p>+880 1321676312</p>
+        <p>tkmahfuzachy1@gmail.com</p>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="team-member">
+        <h3>Samiya Rahman</h3>
+        <p>Zindabazar, Sylhet</p>
+        <p>+880 1XXXXXXXXX2</p>
+        <p>samiya@example.com</p>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="team-member">
+        <h3>Sakib Ahmed</h3>
+        <p>Amberkhana, Sylhet</p>
+        <p>+880 1XXXXXXXXX3</p>
+        <p>member3@example.com</p>
+      </div>
+    </div>
+
+    <div class="main-contact-area">
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form>
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea rows="6" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Google Map -->
+      <div class="map-area">
+        <h2>Our Location</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.89631088439!2d91.84198927471738!3d24.901518243614664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3750554e52cb7077%3A0xf183012d4710cc19!2sSylhet%20International%20University!5e0!3m2!1sen!2sbd!4v1750776812382!5m2!1sen!2sbd"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

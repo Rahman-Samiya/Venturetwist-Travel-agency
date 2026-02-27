@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VentureTwist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+   
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="top-bar">
+            <div class="contact-info">
+                <a href="tel:+1234567890" class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+880-12345678</span>
+                </a>
+                <a href="mailto:venturetwist@travel.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>venturetwist@travel.com</span>
+                </a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.facebook.com/samiya.rahman.36342" class="social-link facebook" target="_blank"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/sh__a_kib" class="social-link twitter" target="_blank"><i
+                        class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/mahfuzakawsarchy/" class="social-link instagram" target="_blank"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/samiya-rahman-873816384" class="social-link linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/@shakibcave" class="social-link youtube" target="_blank"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.jpg" alt="Logo">
+                <h1>VentureTwist</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="about.html">About Us</a>
+                
+                <a href="get_in_touch.html">Get In Touch</a>
+
+                <div class="dropdown">
+                    <button class="dropdown-btn">More<i class="fas fa-chevron-down"></i></button>
+                    <div class="dropdown-content">
+                        <li><a href="booking.php">HOTEL BOOKING</a></li>
+                        <li><a href="transport.php">TRANSPORT</a></li>
+                        <li><a href="scuva.html">SCUVA DIVING</a></li>
+                        <li><a href="sky diving.html">SKY DIVING</a></li>
+                        <li><a href="BUNGEE JUMPS.HTML">BUNGEE JUMPS</a></li>
+                        <li><a href="travel_diaries.html">DIARY</a></li>
+                        <li><a href="cards.html" >TRAVEL GADGET</a></li>
+                    </div>
+                </div>
+
+                <div class="auth-buttons">
+                    <a href="login.html">
+                        <button class="login-btn">Log In</button>
+                    </a>
+
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <p> <strong>A TEAM OF PROFESSIONAL TRAVEL EXPERTS</strong></p>
+            <h1>Enjoy Your Happy Journey</h1>
+            <div class="search-box">
+                <input type="text" placeholder="Search..." class="search-input">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </section>
+    <section class="BookingSection">
+        <a href="booking.php">
+            <button class="info-btn">BOOKING NOW</button>
+        </a>
+
+    </section>
+
+    <!-- DESTINATIONS -->
+    <section class="destinations">
+        <div class="section-title-wrapper">
+            <h2 class="section-title">Top Destinations To Your Dream</h2>
+        </div>
+        <div class="destination-grid" id="destinationGrid">
+            <!-- Destination cards will be added by JavaScript -->
+        </div>
+    </section>
+
+    <!-- IMAGE GRID -->
+    <section class="image-grid">
+        <div class="image-item">
+            <img src="Maldives.jpg" alt="Maldives Beach">
+            <button class="info-btn" onclick="location.href='maldives.html'">Learn More</button>
+        </div>
+
+        <div class="image-item">
+            <img src="Nepal.jpg" alt="Nepal Temple">
+            <button class="info-btn" onclick="location.href='nepal.html'">Learn More</button>
+        </div>
+
+        <div class="image-item">
+            <img src="Thailand.jpg" alt="Thailand Mountain">
+            <button class="info-btn" onclick="location.href='thailand.html'">Learn More</button>
+        </div>
+        <div class="image-item">
+            <img src="singapur.jpg" alt="Singapore View">
+            <button class="info-btn" onclick="location.href='singapore.html'"> Learn More</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="sephora-footer">
+        <div class="footer-container">
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h3> About VentureTwist </h3>
+                    <ul>
+                        <li><a href="#">About VentureTwist</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Sephora Stands</a></li>
+                        <li><a href="#">Affiliates</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>VentureTwist</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Social</a></li>
+                        <li><a href="#">History</a></li>
+                        <li><a href="#">Achivement</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Help & FAQs</h3>
+                    <ul>
+                        <li><a href="#">Online Ordering</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Ways to Shop</h3>
+                    <ul>
+                        <li><a href="#">Just Arrived</a></li>
+                        <li><a href="#">Bestsellers</a></li>
+                        <li><a href="#">Beauty Offers</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Email Signup -->
+            <div class="email-signup">
+                <h3>Sign up for VentureTwist</h3>
+                <form class="email-form">
+                    <input type="email" placeholder="Email">
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="legal-links">
+                    <p>VentureTwist <a href="#">Terms</a> | <a href="#">Privacy</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

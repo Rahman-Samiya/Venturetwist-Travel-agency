@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bungee Jumping - Experience the Thrill</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #38c7b4;
+            --secondary: #359185;
+            --accent: #2d989e;
+            --light: #fff8e1;
+            --dark: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("bungee-jumping.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #7d0a2a;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .feature-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .feature-card:hover .feature-img img {
+            transform: scale(1.1);
+        }
+
+        .feature-content {
+            padding: 1.5rem;
+        }
+
+        .feature-content h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .booking-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .booking-form h2 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Gallery */
+        .gallery {
+            padding: 60px 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .gallery h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Popular Jump Sites */
+        .popular-sites {
+            background-color: var(--light);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .popular-sites h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .site-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 1rem;
+            transition: transform 0.3s;
+            display: inline-block;
+            width: calc(25% - 40px);
+            vertical-align: top;
+        }
+
+        .site-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .site-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .site-card h3 {
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        .site-card p {
+            color: var(--dark);
+        }
+
+        @media (max-width: 768px) {
+            .site-card {
+                width: calc(50% - 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="home">
+        <div class="hero">
+            <h1>Experience the Thrill of Bungee Jumping</h1>
+            <p>Join us for an unforgettable bungee jumping adventure with experienced instructors and breathtaking views.</p>
+            <a href="#booking" class="btn">Book Your Jump Today</a>
+            <a href="index.html" class="btn">Home</a>
+        </div>
+    </header>
+
+    <section class="container" id="about">
+        <h2>Why Choose Our Bungee Jumping Experience?</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-img">
+                    <img src="bungee1.jpg" alt="Experienced Instructors">
+                </div>
+                <div class="feature-content">
+                    <h3>Experienced Instructors</h3>
+                    <p>Our instructors are certified and have years of experience to ensure your safety and enjoyment.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-img">
+                    <img src="bungee2.jpg" alt="Top-Notch Equipment">
+                </div>
+                <div class="feature-content">
+                    <h3>Top-Notch Equipment</h3>
+                    <p>We provide the best bungee jumping gear to ensure a safe and thrilling experience.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-img">
+                    <img src="bungee3.jpg" alt="Breathtaking Views">
+                </div>
+                <div class="feature-content">
+                    <h3>Breathtaking Views</h3>
+                    <p>Enjoy stunning views from the jump point as you take the leap of faith.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="popular-sites">
+        <h2>Popular Jump Sites</h2>
+        <div class="container">
+            <div class="site-card">
+                <img src="grand_canyon.jpg" alt="The Grand Canyon">
+                <h3>Site 1: The Grand Canyon</h3>
+                <p>Experience the breathtaking views of the Grand Canyon while taking the plunge!</p>
+            </div>
+            <div class="site-card">
+                <img src="victoria_falls.jpg" alt="Victoria Falls">
+                <h3>Site 2: Victoria Falls</h3>
+                <p>Jump from one of the highest bungee points in the world at Victoria Falls.</p>
+            </div>
+            <div class="site-card">
+                <img src="bloukrans_bridge.jpg" alt="Bloukrans Bridge">
+                <h3>Site 3: Bloukrans Bridge</h3>
+                <p>Join us at the Bloukrans Bridge, the highest commercial bungee jump in the world.</p>
+            </div>
+            <div class="site-card">
+                <img src="nevis_bungy.jpg" alt="Nevis Bungy">
+                <h3>Site 4: Nevis Bungy</h3>
+                <p>Take a leap from the Nevis Bungy, surrounded by stunning mountain scenery.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2>Our Bungee Jumping Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="bungee4.jpg" alt="Bungee Jumping Experience 1">
+                    <p>Bungee Jumping Experience 1</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="bungee5.jpg" alt="Bungee Jumping Experience 2">
+                    <p>Bungee Jumping Experience 2</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="bungee6.jpg" alt="Bungee Jumping Experience 3">
+                    <p>Bungee Jumping Experience 3</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="bungee7.jpg" alt="Bungee Jumping Experience 4">
+                    <p>Bungee Jumping Experience 4</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="bungee8.jpg" alt="Bungee Jumping Experience 5">
+                    <p>Bungee Jumping Experience 5</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="bungee9.jpg" alt="Bungee Jumping Experience 6">
+                    <p>Bungee Jumping Experience 6</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="container">
+        <div class="booking-form">
+            <h2>Book Your Bungee Jumping Adventure</h2>
+            <form id="bungeeBookingForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="jumpType">Jump Type</label>
+                    <select id="jumpType" name="jumpType" required>
+                        <option value="">Select a jump type</option>
+                        <option value="standard">Standard Jump</option>
+                        <option value="premium">Premium Jump</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="participants">Number of Jumpers</label>
+                    <input type="number" id="participants" name="participants" min="1" max="10" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Special Requests</label>
+                    <textarea id="notes" name="notes" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn">Proceed to Payment</button>
+            </form>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h3>Bungee Jumping Adventures</h3>
+            <p>Experience the thrill of bungee jumping with professional guidance</p>
+
+           <div class="social-links">
+                <a href="https://www.facebook.com/samiya.rahman.36342" class="social-link facebook" target="_blank"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/sh__a_kib" class="social-link twitter" target="_blank"><i
+                        class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/mahfuzakawsarchy/" class="social-link instagram" target="_blank"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/@shakibcave" class="social-link youtube" target="_blank"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+            <p>Email: venturetwist@travel.com</p>
+            <p>Phone: +880-12345678</p>
+            
+        </div>
+    </footer>
+
+    <script>
+        // Calculate price based on jump type and participants
+        document.getElementById('jumpType').addEventListener('change', calculatePrice);
+        document.getElementById('participants').addEventListener('change', calculatePrice);
+
+        function calculatePrice() {
+            const jumpType = document.getElementById('jumpType').value;
+            const participants = parseInt(document.getElementById('participants').value);
+            let price = 0;
+
+            switch (jumpType) {
+                case 'standard':
+                    price = 150;
+                    break;
+                case 'premium':
+                    price = 200;
+                    break;
+                default:
+                    price = 0;
+            }
+
+            const total = price * participants;
+            document.getElementById('amount').value = total > 0 ? `$${total}` : 'Select jump type';
+        }
+
+        // Modal functionality
+        const modal = document.getElementById('paymentModal');
+        const btn = document.getElementById('bungeeBookingForm');
+        const span = document.getElementsByClassName('close')[0];
+
+        btn.addEventListener('submit', function (e) {
+            e.preventDefault();
+            calculatePrice();
+            modal.style.display = 'block';
+        });
+
+        span.onclick = function () {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Payment form submission
+        document.getElementById('paymentForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Payment processed successfully! We will contact you shortly to confirm your booking.');
+            modal.style.display = 'none';
+            document.getElementById('bungeeBookingForm').reset();
+        });
+    </script>
+</body>
+
+</html>

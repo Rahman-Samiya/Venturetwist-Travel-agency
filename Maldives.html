@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SingaporeEscape - Tropical Paradise Awaits</title>
+    <meta name="description"
+        content="Discover the pristine beauty of Singapore. Experience crystal-clear waters, luxury resorts, and unforgettable tropical adventures with our expert-guided tours.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #38c7b4;
+        }
+
+        .logo::before {
+            margin-right: 10px;
+            font-size: 32px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #38c7b4;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #38c7b4;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #1ea593, #2313af);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(233, 126, 34, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
+                url('https://images.pexels.com/photos/933054/pexels-photo-933054.jpeg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero .highlight {
+            background: linear-gradient(135deg, #38c7b4, #e97e22);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #1ea593, #2313af);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(233, 126, 34, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #1ea593;
+            padding: 15px 30px;
+            border: 2px solid white;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: #1ea593;
+            color: #333;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Tour Plans Section */
+        .tours {
+            background: #f8fafc;
+        }
+
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .tour-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .tour-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .tour-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .tour-card:hover .tour-image img {
+            transform: scale(1.1);
+        }
+
+        .difficulty-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #38c7b4;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .tour-content {
+            padding: 25px;
+        }
+
+        .tour-content h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .tour-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .tour-highlights {
+            margin-bottom: 20px;
+        }
+
+        .tour-highlights h4 {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .highlight-item::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .tour-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tour-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #38c7b4;
+        }
+
+        .book-btn {
+            background: #38c7b4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .book-btn:hover {
+            background: #38c7b4;
+            transform: translateY(-2px);
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .blog-content h3:hover {
+            color: #38c7b4;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .blog-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .blog-stats-left {
+            display: flex;
+            gap: 15px;
+        }
+
+        .read-more {
+            color: #38c7b4;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #38c7b4;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: #f8fafc;
+        }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: white;
+            color: #666;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #38c7b4;
+            color: white;
+            box-shadow: 0 5px 15px rgba(233, 126, 34, 0.3);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay::before {
+            content: "📷";
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* Destinations Section */
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .destination-card {
+            position: relative;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .destination-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .destination-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            color: white;
+        }
+
+        .destination-location {
+            display: flex;
+            align-items: center;
+            color: #38c7b4;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .destination-location::before {
+            content: "📍";
+            margin-right: 5px;
+        }
+
+        .destination-overlay h3 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .destination-overlay p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .explore-btn {
+            background: #38c7b4;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            align-self: flex-start;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .destination-card:hover .explore-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .explore-btn:hover {
+            background: #38c7b4;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #38c7b4, #dc2626);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item::before {
+            content: attr(data-icon);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-icon:hover {
+            background: white;
+            color: #38c7b4;
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h3 {
+            color: #333;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: #38c7b4;
+            box-shadow: 0 0 0 3px rgba(233, 126, 34, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #38c7b4;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #38c7b4;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #38c7b4;
+            color: rgb(0, 0, 0);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-section p {
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #000000;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #d38817;
+        }
+
+        .newsletter {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .newsletter input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 25px 0 0 25px;
+            background: #000000;
+            color: white;
+            outline: none;
+        }
+
+        .newsletter input::placeholder {
+            color: #000000;
+        }
+
+        .newsletter button {
+            background: #38c7b4;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter button:hover {
+            background: #000000;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #000000;
+            padding-top: 30px;
+            text-align: center;
+            color: #000000;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-filters {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .tour-grid,
+            .blog-grid,
+            .destinations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hide scrollbar but keep functionality */
+        .gallery-filters::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .gallery-filters::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .gallery-filters::-webkit-scrollbar-thumb {
+            background: #38c7b4;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">SingaporeEscape</div>
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="#tours">Tours</a>
+                <a href="#blog">Blog</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="#contact" class="cta-button">Book Now</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Discover <span class="highlight">Paradise</span></h1>
+            <p>Experience the ultimate tropical getaway in the pristine waters and luxury resorts of Singapore</p>
+            <div class="hero-buttons">
+                <a href="#tours" class="btn-primary">Start Your Escape</a>
+                <a href="#gallery" class="btn-secondary">Watch Video</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Plans Section -->
+    <section id="tours" class="section tours">
+        <div class="container">
+            <div class="section-header">
+                <h2>Luxury Resort Packages</h2>
+                <p>Choose from our exclusive resort experiences designed to give you the perfect Singapore escape</p>
+            </div>
+
+            <div class="tour-grid">
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="luxury2.jpeg"
+                            alt="Overwater Villa Experience">
+                        <div class="difficulty-badge">Luxury</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Overwater Villa Experience</h3>
+                        <div class="tour-meta">
+                            <span>🕒 7 Days</span>
+                            <span>👥 2 Guests</span>
+                        </div>
+                        <div class="tour-highlights">
+                            <h4>Highlights:</h4>
+                            <div class="highlights-grid">
+                                <div class="highlight-item">Private Villa</div>
+                                <div class="highlight-item">Direct Ocean Access</div>
+                                <div class="highlight-item">Spa Treatments</div>
+                                <div class="highlight-item">Fine Dining</div>
+                            </div>
+                        </div>
+                        <div class="tour-footer">
+                            <div class="tour-price">BDT 75,000</div>
+                            <button class="book-btn">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="adventure.jpeg"
+                            alt="Island Hopping Adventure">
+                        <div class="difficulty-badge">Adventure</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Island Hopping Adventure</h3>
+                        <div class="tour-meta">
+                            <span>🕒 5 Days</span>
+                            <span>👥 Max 8</span>
+                        </div>
+                        <div class="tour-highlights">
+                            <h4>Highlights:</h4>
+                            <div class="highlights-grid">
+                                <div class="highlight-item">Multiple Islands</div>
+                                <div class="highlight-item">Snorkeling</div>
+                                <div class="highlight-item">Local Culture</div>
+                                <div class="highlight-item">Dolphin Watching</div>
+                            </div>
+                        </div>
+                        <div class="tour-footer">
+                            <div class="tour-price">BDT 60,000</div>
+                            <button class="book-btn">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="r.jpeg"
+                            alt="Romantic Getaway">
+                        <div class="difficulty-badge">Romance</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Romantic Getaway</h3>
+                        <div class="tour-meta">
+                            <span>🕒 4 Days</span>
+                            <span>👥 2 Guests</span>
+                        </div>
+                        <div class="tour-highlights">
+                            <h4>Highlights:</h4>
+                            <div class="highlights-grid">
+                                <div class="highlight-item">Sunset Cruise</div>
+                                <div class="highlight-item">Couples Spa</div>
+                                <div class="highlight-item">Private Beach</div>
+                                <div class="highlight-item">Candlelit Dinner</div>
+                            </div>
+                        </div>
+                        <div class="tour-footer">
+                            <div class="tour-price">BDT 50,000</div>
+                            <button class="book-btn">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Travel Stories & Tips</h2>
+                <p>Get inspired by stories from fellow travelers and expert advice for your Singapore adventure</p>
+            </div>
+
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg"
+                            alt="Singapore Tips">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>Marina Ocean</span>
+                            <span>•</span>
+                            <span>Dec 15, 2024</span>
+                            <span>•</span>
+                            <span>7 min read</span>
+                        </div>
+                        <h3>10 Essential Tips for Your First Singapore Trip</h3>
+                        <p class="blog-excerpt">Discover insider secrets to make the most of your tropical paradise
+                            vacation.</p>
+                        <div class="blog-stats">
+                            <div class="blog-stats-left">
+                                <span>❤ 342</span>
+                                <span>👁 2,150</span>
+                                <span>💬 67</span>
+                            </div>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg"
+                            alt="Underwater World">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>Ahmed Coral</span>
+                            <span>•</span>
+                            <span>Dec 12, 2024</span>
+                            <span>•</span>
+                            <span>9 min read</span>
+                        </div>
+                        <h3>Exploring the Underwater World of Singapore</h3>
+                        <p class="blog-excerpt">Dive into the incredible marine life and coral reefs that make Singapore
+                            special.</p>
+                        <div class="blog-stats">
+                            <div class="blog-stats-left">
+                                <span>❤ 278</span>
+                                <span>👁 1,890</span>
+                                <span>💬 43</span>
+                            </div>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg"
+                            alt="Luxury Resorts">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>Sophia Luxury</span>
+                            <span>•</span>
+                            <span>Dec 10, 2025</span>
+                            <span>•</span>
+                            <span>6 min read</span>
+                        </div>
+                        <h3>Best Luxury Resorts in Singapore</h3>
+                        <p class="blog-excerpt">A curated guide to the most exclusive and breathtaking resorts in
+                            paradise.</p>
+                        <div class="blog-stats">
+                            <div class="blog-stats-left">
+                                <span>❤ 456</span>
+                                <span>👁 3,240</span>
+                                <span>💬 89</span>
+                            </div>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery Section -->
+    <section id="gallery" class="section gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Photo Gallery</h2>
+                <p>Explore the breathtaking beauty of Singapore through our curated collection</p>
+
+                <div class="gallery-filters">
+                    <button class="filter-btn active" onclick="filterGallery('all')">All</button>
+                    <button class="filter-btn" onclick="filterGallery('resorts')">Resorts</button>
+                    <button class="filter-btn" onclick="filterGallery('underwater')">Underwater</button>
+                    <button class="filter-btn" onclick="filterGallery('beaches')">Beaches</button>
+                    <button class="filter-btn" onclick="filterGallery('activities')">Activities</button>
+                </div>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item" data-category="resorts">
+                    <img src="Singapore Government Partnerships Office.jpeg" alt="Luxury Resort">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item" data-category="underwater">
+                    <img src="singapore botanical garden arch.jpeg" alt="Underwater">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item" data-category="beaches">
+                    <img src="Buddha tooth relic temple, Singapore.jpeg" alt="Beach">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item" data-category="activities">
+                    <img src="FORT CANNING PARK.jpeg" alt="Activities">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item" data-category="resorts">
+                    <img src="Things To Do & Must-Visit Places in Singapore.jpeg" alt="Resort Villa">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item" data-category="underwater">
+                    <img src="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg" alt="Marine Life">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item" data-category="beaches">
+                    <img src="https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg" alt="Tropical Beach">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item" data-category="activities">
+                    <img src="https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg" alt="Water Sports">
+                    <div class="gallery-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Destinations Section -->
+    <section id="destinations" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Top Destinations</h2>
+                <p>Discover the most spectacular atolls and islands that make the singapur a truly unique destination
+                </p>
+            </div>
+
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <img src="perican house.jpeg"
+                        alt="perican house">
+                    <div class="destination-overlay">
+                        <div class="destination-location">Peranakan houses in Joo Chiat</div>
+                        <h3>Peranakan houses</h3>
+                        <p>The capital region with luxury resorts and easy airport access.</p>
+                        <button class="explore-btn">Explore More</button>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img src="singapore botanical garden arch.jpeg" alt="Baa Atoll">
+                    <div class="destination-overlay">
+                        <div class="destination-location">Singapore Botanic Gardens</div>
+                        <h3>Botanic Gardens</h3>
+                        <p>World-renowned for its incredible marine biodiversity and manta rays.</p>
+                        <button class="explore-btn">Explore More</button>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img src="Singapore Government Partnerships Office.jpeg" alt="Ari Atoll">
+                    <div class="destination-overlay">
+                        <div class="destination-location">Merlion Park</div>
+                        <h3>Merlion Park</h3>
+                        <p>Famous for whale shark encounters and pristine coral reefs.</p>
+                        <button class="explore-btn">Explore More</button>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img src="Things To Do & Must-Visit Places in Singapore.jpeg" alt="Addu Atoll">
+                    <div class="destination-overlay">
+                        <div class="destination-location">Mount Faber Park</div>
+                        <h3>Mount Faber Park</h3>
+                        <p>The southernmost atoll with unique culture and pristine nature.</p>
+                        <button class="explore-btn">Explore More</button>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img src="luxury.jpg" alt="Lhaviyani Atoll">
+                    <div class="destination-overlay">
+                        <div class="destination-location">Fort Canning Park</div>
+                        <h3>Fort Canning Park</h3>
+                        <p>Remote atoll perfect for those seeking ultimate privacy and luxury.</p>
+                        <button class="explore-btn">Explore More</button>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img src="Buddha tooth relic temple, Singapore.jpeg" alt="Noonu Atoll">
+                    <div class="destination-overlay">
+                        <div class="destination-location">Buddha Tooth Relic Temple & Museum</div>
+                        <h3>Buddha Tooth Relic Temple & Museum</h3>
+                        <p>Home to some of the world's most exclusive resort experiences.</p>
+                        <button class="explore-btn">Explore More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="footer-bottom">
+        <p>&copy; 2025 singapur. All rights reserved. Made with singapur for paradise seekers.</p>
+    </div>
+    </div>
+    </footer>
+
+    <script>
+        // Gallery filter functionality
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter items
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                    item.style.animation = 'fadeInUp 0.5s ease';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Form submission
+        document.querySelector('.contact-form form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Newsletter subscription
+        document.querySelector('.newsletter').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            this.querySelector('input').value = '';
+        });
+
+        // Add loading animation to images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function () {
+                this.style.opacity = '1';
+            });
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.3s ease';
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.tour-card, .blog-card, .destination-card, .gallery-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

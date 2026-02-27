@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - VentureTwist Travels</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #89f7fe 0%, #2a9d81 100%);
+      color: #2c3e50;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+      backdrop-filter: saturate(180%) blur(20px);
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+      font-weight: 600;
+    }
+
+    nav a {
+      margin: 0 1.75rem;
+      text-decoration: none;
+      color: #2c3e50;
+      font-size: 1.1rem;
+      position: relative;
+      padding-bottom: 2px;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: #3ab795;
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    nav a:hover,
+    nav a:focus,
+    nav a.active {
+      color: #3ab795;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    header {
+      position: relative;
+      height: 100vh;
+      max-height: 700px;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 0 1rem;
+      overflow: hidden;
+      font-family: 'Josefin Sans', serif;
+      user-select: none;
+    }
+
+    /* Overlay with animated subtle wave */
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(58,183,149,0.8), rgba(0, 0, 0, 0.4));
+      clip-path: polygon(0 0, 100% 0%, 100% 65%, 0 100%);
+      z-index: 1;
+      animation: gentleWave 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes gentleWave {
+      0%, 100% {
+        clip-path: polygon(0 0, 100% 0%, 100% 65%, 0 100%);
+      }
+      50% {
+        clip-path: polygon(0 0, 100% 0%, 100% 60%, 0 95%);
+      }
+    }
+
+    header .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+
+    header h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 6px 12px rgba(0,0,0,0.4);
+      letter-spacing: 0.06em;
+      line-height: 1.1;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s 0.5s ease forwards;
+    }
+
+    header p {
+      font-weight: 300;
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem; 
+      text-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s 1.2s ease forwards;
+    }
+
+    header a.btn-primary {
+      display: inline-block;
+      padding: 1rem 3rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 50px;
+      color: #2c3e50;
+      background: #3ab795;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(58, 183, 149, 0.5);
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s 1.8s ease forwards;
+      user-select: none;
+      margin-top: 0; 
+    }
+
+    header a.btn-primary:hover,
+    header a.btn-primary:focus {
+      background: #2a9d81;
+      box-shadow: 0 15px 35px rgba(42, 157, 129, 0.7);
+      transform: translateY(0) scale(1.05);
+      outline: none;
+    }
+
+    /* Sections Container */
+    main {
+      max-width: 1000px;
+      margin: -120px auto 3rem;
+      background: #fff;
+      border-radius: 25px;
+      padding: 3.5rem 3rem;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Section Styles */
+    section {
+      margin-bottom: 4rem;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.9s ease-out;
+      will-change: transform, opacity;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-weight: 700;
+      font-size: 2.75rem;
+      margin-bottom: 1.8rem;
+      color: #3ab795;
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 90px;
+      height: 6px;
+      background: linear-gradient(90deg, #3ab795, #2a9d81);
+      border-radius: 10px;
+    }
+
+    /* Paragraphs */
+    p {
+      font-weight: 300;
+      font-size: 1.18rem;
+      color: #34495e;
+      line-height: 1.9;
+      max-width: 850px;
+      margin-bottom: 1.4rem;
+    }
+
+    /* Values List Grid */
+    .values-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2.8rem;
+    }
+
+    /* Cards for the values */
+    .values-list li {
+      background: #3ab795;
+      color: #f0f9ff;
+      padding: 2.3rem 1.8rem;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      box-shadow:
+        0 10px 20px rgba(58,183,149,0.4),
+        0 6px 12px rgba(0,0,0,0.07);
+      position: relative;
+      cursor: default;
+      transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.35s ease;
+      user-select: none;
+    }
+
+    .values-list li:hover,
+    .values-list li:focus {
+      background: #2a9d81;
+      box-shadow:
+        0 18px 36px rgba(42,157,129,0.55),
+        0 10px 18px rgba(0,0,0,0.12);
+      transform: translateY(-10px);
+      outline: none;
+    }
+
+    /* Icon Before List Items */
+    .values-list li {
+      position: relative;
+      padding-left: 60px; /* Adds space for the icon */
+      margin-bottom: 20px; /* Optional spacing between items */
+    }
+
+    .values-list li::before {
+      content: '';
+      display: inline-block;
+      width: 38px;
+      height: 38px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      filter: drop-shadow(0 0 1px rgba(0,0,0,0.15));
+    }
+
+    /* Individual icons */
+    .values-list li:nth-child(1)::before {
+      background-image: url('https://img.icons8.com/ios-filled/50/ffffff/user.png');
+    }
+    .values-list li:nth-child(2)::before {
+      background-image: url('https://img.icons8.com/ios-filled/50/ffffff/idea.png');
+    }
+    .values-list li:nth-child(3)::before {
+       background-image: url('https://img.icons8.com/ios-filled/50/ffffff/leaf.png');
+    }
+    .values-list li:nth-child(4)::before {
+      background-image: url('https://img.icons8.com/ios-filled/50/ffffff/map.png');
+    }
+    .values-list li:nth-child(5)::before {
+      background-image: url('https://img.icons8.com/ios-filled/50/ffffff/lock.png');
+    }
+    
+
+   
+
+    /* Animations */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Typography */
+    @media (max-width: 1024px) {
+      header h1 {
+        font-size: 3.25rem;
+      }
+      header p {
+        font-size: 1.4rem;
+      }
+      main {
+        padding: 3rem 2.5rem;
+      }
+      h2 {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav a {
+        margin: 0 1rem;
+        font-size: 1.05rem;
+      }
+      header h1 {
+        font-size: 2.7rem;
+      }
+      header p {
+        font-size: 1.2rem;
+      }
+      main {
+        margin: -90px 1rem 3rem;
+        padding: 2.5rem 1.75rem;
+        border-radius: 20px;
+      }
+      h2 {
+        font-size: 1.85rem;
+      }
+      .values-list {
+        grid-template-columns: 1fr;
+      }
+      .values-list li::before {
+        width: 32px;
+        height: 32px;
+        top: 18px;
+        left: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2.3rem;
+      }
+      header p {
+        font-size: 1.05rem;
+      }
+      nav a {
+        margin: 0 0.6rem;
+        font-size: 1rem;
+      }
+      main {
+        margin: -70px 1rem 2.5rem;
+        padding: 2rem 1.25rem;
+        border-radius: 18px;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
+      .values-list li {
+        font-size: 1.1rem;
+        padding: 1.8rem 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav role="navigation" aria-label="Primary navigation">
+     <a href="index.html" class="nav-link active" tabindex="0">Home</a>
+    <a href="#about" class="nav-link active" tabindex="0">About</a>
+    <a href="#mission" class="nav-link" tabindex="0">Mission</a>
+    <a href="#values" class="nav-link" tabindex="0">Values</a>
+  </nav>
+
+  <header>
+    <div class="hero-content" role="banner">
+      <h1>Discover The World With Wanderlust Travels</h1>
+      <p>Your trusted partner for unforgettable journeys and authentic experiences.</p>
+      <a href="#about" class="btn-primary" aria-label="Learn more about Wanderlust Travels">Explore More</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="reveal" tabindex="0" aria-labelledby="about-title">
+      <h2 id="about-title">Who We Are</h2>
+      <p>At Wanderlust Travels, we believe in making your travel dreams come to life through expertly curated, personalized trips. We blend passion, knowledge, and care to deliver immersive journeys that awaken your sense of adventure and wonder.</p>
+      <p>Our team of travel enthusiasts is dedicated to providing white-glove service and insider access worldwide, making each experience truly exceptional and memorable.</p>
+    </section>
+
+    <section id="mission" class="reveal" tabindex="0" aria-labelledby="mission-title">
+      <h2 id="mission-title">Our Mission</h2>
+      <p>We strive to inspire, empower, and connect travelers through tailor-made travel solutions that prioritize meaningful cultural exchanges, sustainable tourism, and seamless experiences. From the first planning step to the last memory made, our mission is to be your trusted travel companion.</p>
+    </section>
+
+    <section id="values" class="reveal" tabindex="0" aria-labelledby="values-title">
+      <h2 id="values-title">What We Value</h2>
+      <ul class="values-list" role="list">
+        <li tabindex="0">Customer-Centric Service</li>
+        <li tabindex="0">Innovation &amp; Creativity</li>
+        <li tabindex="0">Sustainable Tourism</li>
+        <li tabindex="0">Authentic Experiences</li>
+        <li tabindex="0">Integrity &amp; Trust</li>
+      </ul>
+    </section>
+  </main>
+
+ 
+
+  <script>
+    // Scroll reveal animation for sections with staggered effect
+    const sections = document.querySelectorAll('.reveal');
+    const navLinks = document.querySelectorAll('nav a.nav-link');
+
+    function reveal() {
+      const windowHeight = window.innerHeight;
+      const revealPoint = 140;
+
+      sections.forEach((section, index) => {
+        const top = section.getBoundingClientRect().top;
+        if (top < windowHeight - revealPoint) {
+          section.classList.add('visible');
+          section.style.transitionDelay = `${index * 0.25}s`;
+        } else {
+          section.classList.remove('visible');
+          section.style.transitionDelay = '0s';
+        }
+      });
+    }
+
+    // Highlight active nav link based on scroll position
+    function updateNav() {
+      let fromTop = window.scrollY + window.innerHeight / 3;
+
+      sections.forEach(section => {
+        const id = section.id;
+        const offsetTop = section.offsetTop;
+        const nextSection = section.nextElementSibling;
+        const offsetBottom = nextSection ? nextSection.offsetTop : document.body.scrollHeight;
+
+        navLinks.forEach(link => link.classList.remove('active'));
+
+        if (fromTop >= offsetTop && fromTop < offsetBottom) {
+          const activeLink = document.querySelector(`nav a[href="#${id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      reveal();
+      updateNav();
+    });
+    window.addEventListener('load', () => {
+      reveal();
+      updateNav();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCUVA Diving - Explore the Underwater World</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #38c7b4;
+            --secondary: #359185;
+            --accent: #2d989e;
+            --light: #f0f8ff;
+            --dark: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+           background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("diving.jpeg");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        nav {
+            background-color: var(--secondary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem 0;
+            margin: 0;
+        }
+
+        nav li {
+            margin: 0 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #38c7b4;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .feature-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .feature-card:hover .feature-img img {
+            transform: scale(1.1);
+        }
+
+        .feature-content {
+            padding: 1.5rem;
+        }
+
+        .feature-content h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .gallery {
+            background-color: var(--light);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .gallery h2 {
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+  .booking-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .booking-form h2 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Modal for payment */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin: 0.5rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .form-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="home">
+        <div class="hero">
+            <h1>Discover the Underwater World</h1>
+            <p>Join SCUVA Diving for unforgettable diving experiences with certified instructors at the most beautiful
+                dive sites around the world.</p>
+            <a href="#booking" class="btn">Book Your Dive Today</a>
+            <a href="index.html" class="btn">Home</a>
+        </div>
+    </header>
+
+    <section class="container" id="about">
+        <h2>Why Choose SCUVA Diving?</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-img">
+                    <img src="luxury.jpg" alt="Certified Instructors">
+                </div>
+                <div class="feature-content">
+                    <h3>Certified Instructors</h3>
+                    <p>All our instructors are PADI certified with years of experience ensuring your safety and
+                        enjoyment.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-img">
+                    <img src="scuba.jpg" alt="Premium Equipment">
+                </div>
+                <div class="feature-content">
+                    <h3>Premium Equipment</h3>
+                    <p>We provide top-quality, well-maintained diving gear for all our customers at no extra cost.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-img">
+                    <img src="group.jpg" alt="Small Groups">
+                </div>
+                <div class="feature-content">
+                    <h3>Small Groups</h3>
+                    <p>We keep our groups small to ensure personalized attention and a better diving experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2>Our Underwater Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="coral.jpeg" alt="Coral Reef">
+                    <div class="gallery-overlay">Coral Reef Exploration</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="wreck.jpeg" alt="Wreck Dive">
+                    <div class="gallery-overlay">Wreck Diving Adventure</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="turtle.jpeg" alt="Turtle Encounter">
+                    <div class="gallery-overlay">Marine Life Encounters</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="night.jpeg" alt="Night Dive">
+                    <div class="gallery-overlay">Night Diving Experience</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="cave.jpeg" alt="Cave Diving">
+                    <div class="gallery-overlay">Cave Diving Special</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="cave1.jpeg" alt="Cave Diving">
+                    <div class="gallery-overlay">Cave Diving Special</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="cave2.jpeg" alt="Cave Diving">
+                    <div class="gallery-overlay">Cave Diving Special</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="team.jpeg" alt="Dive Team">
+                    <div class="gallery-overlay">Our Professional Team</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="dives">
+        <h2>Popular Dive Sites</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-img">
+                    <img src="whole.jpeg" alt="Blue Hole">
+                </div>
+                <div class="feature-content">
+                    <h3>The Blue Hole</h3>
+                    <p>Experience one of the world's most famous dive sites with incredible depth and marine life.</p>
+                    <p><strong>Depth:</strong> 40-130m</p>
+                    <p><strong>Level:</strong> Advanced</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-img">
+                    <img src="coral garden.jpeg" alt="Coral Garden">
+                </div>
+                <div class="feature-content">
+                    <h3>Coral Garden</h3>
+                    <p>Perfect for beginners with shallow waters and abundant colorful coral formations.</p>
+                    <p><strong>Depth:</strong> 5-15m</p>
+                    <p><strong>Level:</strong> Beginner</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-img">
+                    <img src="shipwreck.jpeg" alt="Shipwreck">
+                </div>
+                <div class="feature-content">
+                    <h3>SS Thistlegorm</h3>
+                    <p>Explore this famous WWII wreck with trucks, motorcycles and wartime artifacts.</p>
+                    <p><strong>Depth:</strong> 15-30m</p>
+                    <p><strong>Level:</strong> Intermediate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="container">
+        <div class="booking-form">
+            <h2>Book Your Diving Adventure</h2>
+            <form id="skyDivingBookingForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="diveType">Dive Type</label>
+                    <select id="diveType" name="diveType" required>
+                        <option value="">Select a dive type</option>
+                        <option value="reef">Reef Dive (Beginner)</option>
+                        <option value="wreck">Wreck Dive (Intermediate)</option>
+                        <option value="deep">Deep Dive (Advanced)</option>
+                        <option value="night">Night Dive</option>
+                        <option value="course">PADI Course</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="participants">Number of Jumpers</label>
+                    <input type="number" id="participants" name="participants" min="1" max="10" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Special Requests</label>
+                    <textarea id="notes" name="notes" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn">Proceed to Payment</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Payment Details</h2>
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiry">Expiry Date</label>
+                        <input type="text" id="expiry" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cardName">Name on Card</label>
+                    <input type="text" id="cardName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Amount to Pay</label>
+                    <input type="text" id="amount" readonly>
+                </div>
+
+                <button type="submit" class="btn">Complete Payment</button>
+            </form>
+        </div>
+    </div>
+
+
+    <footer id="contact">
+        <div class="container">
+            <h3>SCUVA Diving</h3>
+            <p>Explore the underwater world with professional guidance</p>
+
+            <div class="social-links">
+                <a href="https://www.facebook.com/samiya.rahman.36342" class="social-link facebook" target="_blank"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/sh__a_kib" class="social-link twitter" target="_blank"><i
+                        class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/mahfuzakawsarchy/" class="social-link instagram" target="_blank"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/@shakibcave" class="social-link youtube" target="_blank"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+
+            <p>Email: venturetwist@travel.com</p>
+            <p>Phone: +880-12345678</p>
+            
+        </div>
+    </footer>
+
+    <script>
+        // Calculate price based on dive type and participants
+        document.getElementById('diveType').addEventListener('change', calculatePrice);
+        document.getElementById('participants').addEventListener('change', calculatePrice);
+
+        function calculatePrice() {
+            const diveType = document.getElementById('diveType').value;
+            const participants = parseInt(document.getElementById('participants').value);
+            let price = 0;
+
+            switch (diveType) {
+                case 'reef':
+                    price = 80;
+                    break;
+                case 'wreck':
+                    price = 120;
+                    break;
+                case 'deep':
+                    price = 150;
+                    break;
+                case 'night':
+                    price = 100;
+                    break;
+                case 'course':
+                    price = 400;
+                    break;
+                default:
+                    price = 0;
+            }
+
+            const total = price * participants;
+            document.getElementById('amount').value = total > 0 ? $${total} : 'Select dive type';
+        }
+
+        // Modal functionality
+        const modal = document.getElementById('paymentModal');
+        const btn = document.getElementById('diveBookingForm');
+        const span = document.getElementsByClassName('close')[0];
+
+        btn.addEventListener('submit', function (e) {
+            e.preventDefault();
+            calculatePrice();
+            modal.style.display = 'block';
+        });
+
+        span.onclick = function () {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Payment form submission
+        document.getElementById('paymentForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Payment processed successfully! We will contact you shortly to confirm your booking.');
+            modal.style.display = 'none';
+            document.getElementById('diveBookingForm').reset();
+        });
+    </script>
+</body>
+
+</html>
