@@ -135,8 +135,7 @@ This project is for educational purposes.
 
 ## Contact
 
-- Email: venturetwist@travel.com
-- Phone: +880-12345678
+- Email: samiya.r.cse.2k23@gmail.com
 
 ## Credits
 
